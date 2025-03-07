@@ -28,8 +28,9 @@
 //     credential: admin.credential.cert(serviceAccount),
 // });
 
-// const db = admin.firestore();
-// module.exports = db;
+
+const db = admin.firestore();
+module.exports = db;
 
 
 const admin = require('firebase-admin');
