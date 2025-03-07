@@ -2,3 +2,6 @@
 React/
 node_modules
 .env
+*.json
+firebaseConfig.js
+
