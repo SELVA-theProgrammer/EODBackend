@@ -149,3 +149,6 @@ and push command is
                     git commit -m "Initial commit for EOD Backend"
                     git push -u origin main
 
+completly now wroking hosting on netlify 
+and backend on render was successful and the connectio was stable and strong.
+-----------------------------------------------------------------------------------------------------------------
