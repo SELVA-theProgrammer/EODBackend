@@ -1,0 +1,34 @@
+app.get("/employees", (req, res) => {
+    db.collection("employees").get()
+        .then(snapshot => {
+            let employees = [];
+            snapshot.forEach(doc => {
+                employees.push({ id: doc.id, ...doc.data() });
+            });
+            res.status(200).json(employees);
+        })
+        .catch(error => {
+            res.status(500).json({ error: error.message });
+        });
+});
+
+
+
+app.get("/employee",(req,res) => {
+db.collection("emp").get()
+
+})
+
+
+app.get("/employees", async (req, res) => {
+    try {
+        const snapshot = await db.collection("employees").get();
+        let employees = [];
+        snapshot.forEach((doc) => {
+            employees.push({ id: doc.id, ...doc.data() });
+        });
+        res.status(200).json(employees);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});

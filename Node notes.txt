@@ -1,0 +1,131 @@
+npm init -y for package.json file THIS ONE IS A INITIAL SETUP - Must Follow
+
+
+
+Here i'm using theReal Database in firebase Database  firse you have to create databse - firestore database 
+not a Realtime database.after thet go to PROJECT SETTINGS and go to SERVICE ACCOUNTS. it will show the generate the key use it .
+ 
+
+general config.js FOrmat is :
+
+const admin = require("firebase-admin");
+const serviceAccount = require("./justforrecreate-firebase-adminsdk-fbsvc-f4b9ffd718.json");  here you can call your Key File
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+});
+
+const db = admin.firestore();
+module.exports = db;
+---------------------------------------------------------------------------------------------------------
+
+Front-end => React.JS
+Back-end => Node.Js
+
+--------------------------------------------------------------------------------------------
+
+const admin = require("firebase-admin");
+const serviceAccount = require("./node-training-b8ae2-firebase-adminsdk-fbsvc-96ca7367e8.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+});
+
+const db = admin.firestore();
+module.exports = db;
+
+for using firestore in firebaseCOnfig.js
+---------------------------------------------------------------------------------------------
+
+const admin = require("firebase-admin");
+const serviceAccount = require("./node-training-b8ae2-firebase-adminsdk-fbsvc-96ca7367e8.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://node-training-b8ae2-default-rtdb.firebaseio.com/" // Keep this only for Realtime DB
+});
+
+const db = admin.database();
+module.exports = db;
+
+
+if you are using Realtime Database in firebase 
+-----------------------------------------------------------------------------------------------------
+
+1. onceyou decide to get the details from FireBase use db.collection("collectionName").get()  -- all the employees
+2. if you want to push on db you can use - db.collection("collectionname).add(req.body)  -- push one data to firestore
+3. for deleting purpose you can use like a - db.collection("collectionName).delete()   ---- delete
+4. for updating purpose - db.collection("collectionname).update(req.body)
+5. whatever you want to fetch in firestore You can use get method 
+  So syntax is a 
+                     db.collection("collectionname").get()
+                     db.collection("collectionname").update(req.body)
+                     db.collection("collectionname").delete()
+                     db.collection("collectionname").add(req.body)
+-------------------------------------------------------------------------------------------------------
+
+1.Get all employees: 
+
+           if you want to get all employees from fitrestore , first you make the Firsestoreconnection from node.js to 
+           firebase. after that we retriving the doc's and add in one array and send like a Json.
+
+2.Add Emplotee :
+             
+           if you want add an one employee to firebase we are sending the data from Ract.js , we get the req like a 
+           req.body so we can use .add(req.body).
+
+3.Delete employee:
+
+           if you wanna delete particular employee on firebase you can use like a params in react via come from req
+           so we are sending a ID value we can use like a .doc(req.params.id).delete().
+
+4.Update Employee:
+
+           if you want update the particular employee on firestore we can use like a delete concepts we are sending 
+           the id via params so we can use like a .doc(req.params.id).update().
+
+5.get singe value
+
+          try to get single employee using id we can use like a update and delete concepts how we are sending a 
+          params like a .doc(req.params.id).get()
+
+---------------------------------------------------------------------------------------------------------------------------------
+to Hosting the Froent end to NETLIFY
+
+Frontend URL: https://your-eod-form.netlify.app
+Backend URL: https://your-backend.onrender.com
+
+No worries! You can still deploy your React frontend to Netlify without using GitHub. You can directly upload your build files or use Netlify CLI. Here’s how:
+
+Steps to Deploy React App on Netlify Without GitHub:
+Build Your React App
+
+In your React project folder, run:
+
+npm run build
+This creates a build folder.
+
+Go to Netlify Dashboard
+
+Sign in to Netlify.
+Upload the build Folder
+
+Click "New Site from Git", but instead of Git, drag and drop your build folder.
+Netlify Will Provide a Live URL
+
+Once deployed, you’ll get a public URL to share with your friends.
+Let me know if you need help with this! 😊
+
+--------------------------------------------------------------------------------------------------------------------
+                                     Git GitHub
+
+       if you want push your code on github first you have to remember Your id and password
+
+           GITHub ID: nirmaladevi1868@gmail.com
+           Password :Selva@36912
+
+1.Check Git version Cmd is------ git --version
+
+2.We have to connect git so use this following command
+  * git config --global user.name "Your Name"
+  * git config --global user.email "your-email@example.com"
