@@ -129,3 +129,7 @@ Let me know if you need help with this! 😊
 2.We have to connect git so use this following command
   * git config --global user.name "Your Name"
   * git config --global user.email "your-email@example.com"
+
+
+we cannot able to node js code to GitHUB because we have a firebase credentials like a json in folder so we have to use
+.env file to secure purpose.
