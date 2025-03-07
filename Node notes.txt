@@ -133,3 +133,19 @@ Let me know if you need help with this! 😊
 
 we cannot able to node js code to GitHUB because we have a firebase credentials like a json in folder so we have to use
 .env file to secure purpose.
+
+
+
+first we have to check which repository its connects using following commands
+                   git remote -v
+                   git remote remove origin
+git remote add origin https://github.com/SELVA-theProgrammer/EODBackend.git  (give your current github URL)
+
+
+and push command is 
+
+
+                    git add .
+                    git commit -m "Initial commit for EOD Backend"
+                    git push -u origin main
+

@@ -9,24 +9,37 @@
 // module.exports = db;
 
 
-require("dotenv").config(); // Load environment variables
-const admin = require("firebase-admin");
-const fs = require("fs");
+// require("dotenv").config(); // Load environment variables
+// const admin = require("firebase-admin");
+// const fs = require("fs");
 
-// Get Firebase credentials path from .env
-const serviceAccountPath = process.env.FIREBASE_CREDENTIALS_PATH;
+// // Get Firebase credentials path from .env
+// const serviceAccountPath = process.env.FIREBASE_CREDENTIALS_PATH;
 
-if (!fs.existsSync(serviceAccountPath)) {
-    console.error("Firebase credentials file not found. Check the path in .env");
-    process.exit(1); // Stop execution if file is missing
-}
+// if (!fs.existsSync(serviceAccountPath)) {
+//     console.error("Firebase credentials file not found. Check the path in .env");
+//     process.exit(1); // Stop execution if file is missing
+// }
 
-// Load credentials dynamically
-const serviceAccount = require(serviceAccountPath);
+// // Load credentials dynamically
+// const serviceAccount = require(serviceAccountPath);
 
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount),
+// });
+
+// const db = admin.firestore();
+// module.exports = db;
+
+
+const admin = require('firebase-admin');
+
+// Parse the environment variable as JSON
+const firebaseConfig = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+
+// Initialize Firebase Admin SDK
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(firebaseConfig)
 });
 
-const db = admin.firestore();
-module.exports = db;
+console.log("Firebase Initialized!");
